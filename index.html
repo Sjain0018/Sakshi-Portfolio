@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Sakshi Jain</title>
+    <link href="./src/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        background-color: #022954;
+        font-family: "Poppins", serif;
+        color: white;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .tab-links {
+        position: relative;
+        cursor: pointer;
+      }
+      .tab-links::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 3px;
+        background-color: #354c7c;
+        transition: width 200ms ease-in-out;
+      }
+      .tab-links:hover::after,
+      .tab-links.active-links::after {
+        width: 50%;
+      }
+      .tab-contents {
+        display: none;
+      }
+      .tab-contents.active-tabs {
+        display: block;
+      }
+      .bars {
+        font-size: 23px;
+      }
+      .Technical-bars .bars {
+        margin-top: 40px 0;
+      }
+      .Technical-bars .bars:first-child {
+        margin-top: 0;
+      }
+      .Technical-bars .bars:last-child {
+        margin-bottom: 0;
+      }
+      .Technical-bars .bars .info {
+        margin-bottom: 5px;
+      }
+      .Technical-bars .bars .info span {
+        font-size: 17px;
+        font-weight: 500;
+        animation: showText 0.5s 1s linear forwards;
+        opacity: 0;
+      }
+      .Technical-bars .bars .progress-line {
+        position: relative;
+        border-radius: 10px;
+        width: 100%;
+        height: 5px;
+        background-color: #000000;
+        animation: animate 1s cubic-bezier(1, 0, 0, 5, 1) forwards;
+        transform: scaleX(0);
+        transform-origin: left;
+      }
+      @keyframes animate {
+        100% {
+          transform: scaleX(1);
+        }
+      }
+      .Technical-bars .bars .progress-line span {
+        height: 100%;
+        background-color: #0ef;
+        position: absolute;
+        border-radius: 10px;
+        animation: animate 1s 1s cubic-bezier(1, 0, 0, 5, 1) forwards;
+        transform: scaleX(0);
+        transform-origin: left;
+      }
+      .progress-line.html span {
+        width: 80%;
+      }
+      .progress-line.css span {
+        width: 60%;
+      }
+      .progress-line.javascript span {
+        width: 85%;
+      }
+      .progress-line.c span {
+        width: 90%;
+      }
+      .progress-line.cand span {
+        width: 80%;
+      }
+      .progress-line span::after {
+        position: absolute;
+        padding: 1px 8px;
+        background-color: #000000;
+        color: #fff;
+        font-size: 12px;
+        border-radius: 3px;
+        top: -28px;
+        right: -20px;
+        animation: showText 0.5s 1.5s linear forwards;
+        opacity: 0;
+      }
+      .progress-line.html span::after {
+        content: "80%";
+      }
+      .progress-line.css span::after {
+        content: "60%";
+      }
+      .progress-line.javascript span::after {
+        content: "85%";
+      }
+      .progress-line.c span::after {
+        content: "90%";
+      }
+      .progress-line.cand span::after {
+        content: "80%";
+      }
+      .progress-line span::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: 7px solid transparent;
+        border-bottom-width: 0px;
+        border-right-width: 0px;
+        border-top-color: #000;
+        top: -10px;
+        right: 0;
+        animation: showText 0.5s 1.5s linear forwards;
+      }
+      @keyframes showText {
+        100% {
+          opacity: 1;
+        }
+      }
+      .radical-bars {
+        width: 100%;
+        display: flex;
+        height: 170px;
+        margin-bottom: 10px;
+        position: relative;
+        /* justify-content: space-evenly;
+        align-items: flex-start; */
+      }
+      .radical-bars .radical-bar {
+        width: 50%;
+        height: 170px;
+        margin-bottom: 10px;
+        position: realtive;
+      }
+      .radical-bars .radical-bar svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-90deg);
+        width: 120px;
+        height: 160px;
+      }
+      .radical-bars .radical-bar .progress-bar {
+        stroke-width: 10;
+        stop-color: black;
+        fill: transparent;
+        stroke-dasharray: 502;
+        stroke-dashoffset: 502;
+        stroke-linecap: round;
+        animation: animate-bar 1s linear forwards;
+      }
+      @keyframes animate-bar {
+        100% {
+          stroke-dashoffset: -1;
+        }
+      }
+      .path {
+        stroke-width: 10;
+        stroke: #0ef;
+        fill: transparent;
+        stroke-dasharray: 502;
+        stroke-dashoffset: 502;
+        stroke-linecap: round;
+      }
+      .path-1 {
+        animation: animate-path1 1s 1s linear forwards;
+      }
+      .path-2 {
+        animation: animate-path2 1s 1s linear forwards;
+      }
+      .path-3 {
+        animation: animate-path3 1s 1s linear forwards;
+      }
+      .path-4 {
+        animation: animate-path4 1s 1s linear forwards;
+      }
+      @keyframes animate-path1 {
+        100% {
+          stroke-dashoffset: 50;
+        }
+      }
+      @keyframes animate-path2 {
+        100% {
+          stroke-dashoffset: 175;
+        }
+      }
+      @keyframes animate-path3 {
+        100% {
+          stroke-dashoffset: 125;
+        }
+      }
+      @keyframes animate-path4 {
+        100% {
+          stroke-dashoffset: 125;
+        }
+      }
+      /* for contact section  */
+      .contact-left {
+        flex-basis: 35%;
+      }
+      .contact-right {
+        flex-basis: 60%;
+      }
+      .contact-left p {
+        margin-top: 30px;
+      }
+      .contact-right form {
+        width: 100%;
+      }
+      form input,
+      form textarea {
+        width: 100%;
+        border: 0;
+        outline: none;
+        background: #262626;
+        padding: 15px;
+        margin: 15px 0;
+        color: #fff;
+        font-size: 18px;
+        border-radius: 6px;
+      }
+      #span {
+        color: #61b752;
+        margin-top: -10px;
+        display: block;
+      }
+      .copyright {
+        width: 100%;
+        text-align: center;
+        padding: 25px;
+        background-color: #262626;
+        font-weight: 300;
+        margin-top: 20px;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/c4b7d7870d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  </head>
+  <body>
+    <!-- -----------------Home----------------- -->
+    <div class="h-screen w-full" id="header">
+      <div class="container">
+        <nav
+          class="flex items-center justify-between flex-wrap p-6 bg-[#022954]"
+        >
+          <span class="flex items-center text-white text-xl"
+            ><img src="temp-image.jpg" class="w-10 h-10 rounded-full mr-3""
+            />Sakshi's Portfolio</span
+          >
+          <ul class="flex items-center list-none m-0 p-0">
+            <li class="flex items-center mx-6 relative group">
+              <i
+                class="fa-solid fa-house nav-icon w-5 h-5 mr-2 transition-transform duration-300 ease-in-out"
+              ></i>
+              <a
+                href="#Home"
+                class="text-white text-lg flex items-center relative group-hover:text-blue-300"
+              >
+                Home
+                <span
+                  class="absolute left-0 bottom-[-6px] w-0 h-[3px] bg-[#354c7c] transition-all duration-300 ease-in-out group-hover:w-full"
+                ></span>
+              </a>
+            </li>
+            <li class="flex items-center mx-6 relative group">
+              <i
+                class="fa-solid fa-address-card nav-icon w-5 h-5 mr-2 transition-transform duration-300 ease-in-out"
+              ></i>
+              <a
+                href="#About"
+                class="text-white text-lg flex items-center relative group-hover:text-blue-300"
+              >
+                About
+                <span
+                  class="absolute left-0 bottom-[-6px] w-0 h-[3px] bg-[#354c7c] transition-all duration-300 ease-in-out group-hover:w-full"
+                ></span>
+              </a>
+            </li>
+            <li class="flex items-center mx-6 relative group">
+              <i
+                class="fa-solid fa-file-circle-check nav-icon w-5 h-5 mr-2 transition-transform duration-300 ease-in-out"
+              ></i>
+              <a
+                href="#Skills"
+                class="text-white text-lg flex items-center relative group-hover:text-blue-300"
+              >
+                Skills
+                <span
+                  class="absolute left-0 bottom-[-6px] w-0 h-[3px] bg-[#354c7c] transition-all duration-300 ease-in-out group-hover:w-full"
+                ></span>
+              </a>
+            </li>
+            <li class="flex items-center mx-6 relative group">
+              <i
+                class="fa-solid fa-list-check nav-icon w-5 h-5 mr-2 transition-transform duration-300 ease-in-out"
+              ></i>
+              <a
+                href="#Project"
+                class="text-white text-lg flex items-center relative group-hover:text-blue-300"
+              >
+                Project
+                <span
+                  class="absolute left-0 bottom-[-6px] w-0 h-[3px] bg-[#354c7c] transition-all duration-300 ease-in-out group-hover:w-full"
+                ></span>
+              </a>
+            </li>
+            <li class="flex items-center mx-6 relative group">
+              <i
+                class="fa-solid fa-phone nav-icon w-5 h-5 mr-2 transition-transform duration-300 ease-in-out"
+              ></i>
+              <a
+                href="#Contact"
+                class="text-white text-lg flex items-center relative group-hover:text-blue-300"
+              >
+                Contact
+                <span
+                  class="absolute left-0 bottom-[-6px] w-0 h-[3px] bg-[#354c7c] transition-all duration-300 ease-in-out group-hover:w-full"
+                ></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- -------------- main of home ------------------ -->
+        <div
+          class="row-home flex justify-evenly items-center bg-[#022954] p-12"
+        >
+          <!-- ------------ left-content ---------- -->
+          <div class="col-1-home w-[60%]">
+            <div class="home-text text-whites">
+              <!-- Greeting-->
+              <p id="greeting" class="block mx-2 text-3xl">
+                <!-- Dynamic greeting will be inserted here by JavaScript -->
+              </p>
+              <!-- Glad to see you... paragraph, initially hidden -->
+              <p id="glad-to-see" class="block m-3 text-lg">
+                Glad to see you...
+              </p>
+              <!-- heading with smiley icon -->
+              <h1 class="text-5xl font-normal flex items-center space-x-2 ">
+                Hi! I'm Sakshi Jain
+                <i class="fa-solid fa-face-smile-wink ml-2 text-blue-300"></i>
+              </h1>
+              <!-- Element to contain animated typing -->
+              <h1 class="m-3">
+                <span class="text-2xl font-semibold text-blue-500 tracking-wide"
+                  >The
+                </span>
+                <span
+                  id="element"
+                  class="text-2xl font-semibold text-blue-500 tracking-wide"
+                ></span>
+                <span class="text-blue-500"></span>
+                <!-- Blinking cursor -->
+              </h1>
+              <div class="flex gap-7 mt-5 ml-2 items-center">
+                <button
+                  type="button"
+                  id="btn"
+                  class="px-6 py-2 bg-blue-700 text-white font-medium text-sm rounded-full border-2 border-transparent hover:border-blue-400 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 ease-in-out transform hover:scale-105"
+                  onclick="window.location.href='Sakshi_Resume.pdf';"
+                >
+                  See Resume
+                </button>
+
+                <!-- Social Media links  -->
+                <div class="flex gap-6">
+                  <a
+                    href="https://www.Discord.com/sjain0018"
+                    class="transform hover:scale-110 hover:text-blue-300 text-blue-200 transition-all duration-300 ease-in-out hover:shadow-lg"
+                  >
+                    <i class="fa-brands fa-discord text-2xl"></i>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/sjain0018"
+                    class="transform hover:scale-110 hover:text-blue-300 text-blue-200 transition-all duration-300 ease-in-out hover:shadow-lg"
+                  >
+                    <i class="fa-brands fa-instagram text-2xl"></i>
+                  </a>
+                  <a
+                    href="https://www.github.com/Sjain0018"
+                    class="transform hover:scale-110 hover:text-blue-300 text-blue-200 transition-all duration-300 ease-in-out hover:shadow-lg"
+                  >
+                    <i class="fa-brands fa-github text-2xl"></i>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/Sjain0018"
+                    class="transform hover:scale-110 hover:text-blue-300 text-2xl transition-all duration-300 ease-in-out hover:shadow-lg"
+                  >
+                    <i class="fa-brands fa-linkedin text-2xl"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ------------------- right-content --------------- -->
+          <div
+            class="w-[35%] m-12 p-12 inline-block justify-between items-center"
+          >
+            <div class="grid grid-cols-2 gap-4">
+              <a href="#Home" class="block">
+                <img
+                  src="—Pngtree—vector house icon_4013710.png"
+                  class="w-full h-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+              /></a>
+              <a href="#About" class="block"
+                ><img
+                  src="—Pngtree—vector information icon_4184479.png"
+                  class="w-full h-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+              /></a>
+              <a href="#Project" class="block"
+                ><img
+                  src="project_5956592.png"
+                  class="w-full h-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+              /></a>
+              <a href="#Contact" class="block">
+                <img
+                  src="address-book_8661123.png"
+                  class="w-full h-auto rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+              /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- -----------------------About-------------------- -->
+    <section id="About" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-8 items-center">
+          <!-- Flexbox with responsive stacking -->
+          <!-- Left Column (Image) -->
+          <div class="w-full lg:w-2/5 mb-8 lg:mb-0">
+            <!-- Image width for large screens -->
+            <img
+              src="temp-image.jpg"
+              alt="About Me"
+              class="w-full rounded-lg"
+            />
+          </div>
+          <!-- Right Column (Text) -->
+          <div class="w-full lg:w-3/5">
+            <h1 class="text-3xl font-semibold">
+              About <span class="text-blue-600"> Me</span>
+            </h1>
+            <!-- Some thing about sakshi -->
+            <p>
+              I’m a BCA student with a strong foundation in programming
+              languages like HTML, CSS, JavaScript, C, and C++, along with a
+              solid understanding of data structures. I thrive on solving
+              logical challenges and creating efficient solutions through code.
+              For me, coding is more than just writing code—it’s about
+              understanding how things work and finding ways to make them
+              better. While I haven’t worked on large projects yet, I’m always
+              experimenting with new technologies and tackling small challenges
+              to improve my skills. My goal is to use my knowledge to solve
+              real-world problems and build software that truly makes a
+              difference. I believe in the power of collaboration and clear
+              communication to turn ideas into functional, impactful solutions.
+              Outside of academics, I’m always exploring new tools, frameworks,
+              and personal projects to push my abilities further.
+            </p>
+            <!-- tab-tittles -->
+            <div class="tab-titles flex mt-5 mb-10">
+              <!-- Skills is now technical skills -->
+              <p
+                class="tab-links mr-12 text-2xl font-medium cursor-pointer relative"
+                onclick="opentab(event, 'Skills')"
+              >
+                Technical Skills
+              </p>
+              <p
+                class="tab-links mr-12 text-2xl font-medium cursor-pointer relative"
+                onclick="opentab(event, 'Experience')"
+              >
+                Professional Skills
+              </p>
+              <p
+                class="tab-links mr-12 text-2xl font-medium cursor-pointer relative"
+                onclick="opentab(event, 'Education')"
+              >
+                Education
+              </p>
+            </div>
+            <!-- Content under the tab links -->
+            <!-- For SKills -Technical skills part  -->
+            <div id="Skills" class="tab-contents active-tabs">
+              <div class="Technical-bars">
+                <div class="bars">
+                  <div class="info">
+                    <span>HTML</span>
+                    <i class="fa-brands fa-html5"></i>
+                  </div>
+                  <div class="progress-line html">
+                    <span></span>
+                  </div>
+                </div>
+                <div class="bars">
+                  <div class="info">
+                    <span>CSS</span><i class="fa-brands fa-css3-alt"></i>
+                  </div>
+                  <div class="progress-line css">
+                    <span></span>
+                  </div>
+                </div>
+                <div class="bars">
+                  <div class="info">
+                    <span>JavaScript</span>
+                    <i class="fa-brands fa-js"></i>
+                  </div>
+                  <div class="progress-line javascript">
+                    <span></span>
+                  </div>
+                </div>
+                <div class="bars">
+                  <div class="info">
+                    <span>C</span>
+                  </div>
+                  <div class="progress-line c">
+                    <span
+                      class="c-span absolute top-0 left-0 h-full bg-teal-400 rounded-full transform scale-x-0 animate-progress"
+                    ></span>
+                  </div>
+                </div>
+                <div class="bars">
+                  <div class="info">
+                    <span>C++</span>
+                  </div>
+                  <div class="progress-line cand">
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- For Experience -Professional skills  -->
+            <div id="Experience" class="tab-contents">
+              <div class="grid grid-cols-2 gap-1">
+                <div class="radical-bars">
+                  <svg x="0px" y="0px" viewBox="0 0 200 200">
+                    <circle
+                      class="radical-bar"
+                      cx="100"
+                      cy="100"
+                      r="80"
+                    ></circle>
+                    <circle
+                      class="path path-1"
+                      cx="100"
+                      cy="100"
+                      r="80"
+                    ></circle>
+                  </svg>
+                  <div class="percentage">90%</div>
+                  <div class="text">Creativity</div>
+                </div>
+                <div class="radical-bars">
+                  <svg x="0px" y="0px" viewBox="0 0 200 200">
+                    <circle
+                      class="radical-bar"
+                      cx="100"
+                      cy="100"
+                      r="80"
+                    ></circle>
+                    <circle
+                      class="path path-2"
+                      cx="100"
+                      cy="100"
+                      r="80"
+                    ></circle>
+                  </svg>
+                  <div class="percentage">60%</div>
+                  <div class="text">Communication</div>
+                </div>
+                <div class="radical-bars">
+                  <svg x="0px" y="0px" viewBox="0 0 200 200">
+                    <circle
+                      class="radical-bar"
+                      cx="100"
+                      cy="100"
+                      r="80"
+                    ></circle>
+                    <circle
+                      class="path path-3"
+                      cx="100"
+                      cy="100"
+                      r="80"
+                    ></circle>
+                  </svg>
+                  <div class="percentage">85%</div>
+                  <div class="text">Problem Solving</div>
+                </div>
+                <div class="radical-bars">
+                  <svg x="0px" y="0px" viewBox="0 0 200 200">
+                    <circle
+                      class="radical-bar"
+                      cx="100"
+                      cy="100"
+                      r="80"
+                    ></circle>
+                    <circle
+                      class="path path-4"
+                      cx="100"
+                      cy="100"
+                      r="80"
+                    ></circle>
+                  </svg>
+                  <div class="percentage">80%</div>
+                  <div class="text">Teamwork</div>
+                </div>
+              </div>
+            </div>
+            <!-- For Eductaion tab content  -->
+            <div id="Education" class="tab-contents">
+              <ul>
+                <li>
+                  <p>
+                    <span class="text-blue-500"
+                      >2023 - Present (CCSU - Meerut)</span
+                    ><br />BCA from I.P P.G College Campus-2 Bulandshahr
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <span class="text-blue-500">2022 - 2023 (U.P Board)</span
+                    ><br />12<sup>th </sup>
+                    (PCM) from Dayawati Diwan Singh Shukla Saraswati Vidya
+                    Mandir Sikandrabad Bulandshahr
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <span class="text-blue-500">2020 - 2021 (U.P Board)</span
+                    ><br />10<sup>th </sup>
+                    from Saraswati Balika Vidya Mandir Sikandrabad Bulandshahr
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- for project section  -->
+    <section id="Project" class="p-20 h-[40%] w-full">
+      <div>
+        <h1 class="text-3xl font-semibold">
+          <span class="text-blue-600">My </span>Project
+        </h1>
+      </div>
+    </section>
+
+    <!-- for contact section  -->
+    <section id="Contact" class="p-20 h-[50%] w-full">
+      <div class="container-contact mx-auto px-4">
+        <div class="row-contact flex flex-col lg:flex-row gap-8 items-center">
+          <!-- mail phone no. social media links  -->
+          <div class="contact-left w-full lg:w-2/5 mb-8 lg:mb-0">
+            <div>
+              <h1 class="text-3xl font-semibold">
+                Contact <span class="text-blue-600">Me </span>
+              </h1>
+              <p><i class="fa-solid fa-envelope"></i>sj5373777@gmail.com</p>
+              <p><i class="fa-solid fa-phone"></i>7088017681</p>
+              <div class="flex gap-6">
+                <a
+                  href="https://www.Discord.com/sjain0018"
+                  class="transform hover:scale-110 hover:text-blue-300 text-blue-200 transition-all duration-300 ease-in-out hover:shadow-lg"
+                >
+                  <i class="fa-brands fa-discord text-2xl"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/sjain0018"
+                  class="transform hover:scale-110 hover:text-blue-300 text-blue-200 transition-all duration-300 ease-in-out hover:shadow-lg"
+                >
+                  <i class="fa-brands fa-instagram text-2xl"></i>
+                </a>
+                <a
+                  href="https://www.github.com/Sjain0018"
+                  class="transform hover:scale-110 hover:text-blue-300 text-blue-200 transition-all duration-300 ease-in-out hover:shadow-lg"
+                >
+                  <i class="fa-brands fa-github text-2xl"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/Sjain0018"
+                  class="transform hover:scale-110 hover:text-blue-300 text-2xl transition-all duration-300 ease-in-out hover:shadow-lg"
+                >
+                  <i class="fa-brands fa-linkedin text-2xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- form section  -->
+          <div class="contact-right w-full lg:w-3/5">
+            <form name="submit-to-google-sheet">
+              <input type="text" name="Name" placeholder="Your Name" required />
+              <input
+                type="email"
+                name="Email"
+                placeholder="Your Email"
+                required
+              />
+              <textarea name="Message" placeholder="Hit me up!"></textarea>
+              <button
+                type="submit"
+                class="px-6 py-2 bg-blue-700 text-white font-medium text-sm rounded-full border-2 border-transparent hover:border-blue-400 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 ease-in-out transform hover:scale-105"
+              >
+                Sumbit
+              </button>
+            </form>
+            <span id="msg"> </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="copyright">
+      <p class="bg-transparent">Copyright &copy; reserved @2025</p>
+      <p class="bg-transparent">
+        Thank you for visiting
+        <i class="fa-solid fa-face-smile text-yellow-500"></i>
+      </p>
+      <p class="bg-transparent">
+        Made with <i class="fa-solid fa-heart text-red-700"></i> Sakshi Jain
+      </p>
+    </div>
+    <!-- ---------------- java script ----------------- -->
+
+    <!-- dynamic type script  -->
+    <script>
+      let typed = new Typed("#element", {
+        strings: ["Web developer", "Game developer"],
+        typeSpeed: 50,
+        backSpeed: 30,
+        startDelay: 500,
+        backDelay: 1000,
+        loop: true,
+        loopCount: Infinity,
+      });
+    </script>
+
+    <!-- for dynamic greeting of home page  -->
+    <script>
+      function displayGreeting() {
+        const now = new Date();
+        const hours = now.getHours();
+        let greeting = "";
+        const gladToSeeElement = document.getElementById("glad-to-see");
+        if (hours >= 5 && hours < 12) {
+          greeting = "Good morning!";
+          gladToSeeElement.style.display = "block";
+        } else if (hours >= 12 && hours < 18) {
+          greeting = "Good afternoon!";
+          gladToSeeElement.style.display = "block";
+        } else if (hours >= 18 && hours < 22) {
+          greeting = "Good evening!";
+          gladToSeeElement.style.display = "block";
+        } else {
+          greeting = "Glad to see you!";
+          gladToSeeElement.style.display = "none";
+        }
+
+        document.getElementById("greeting").textContent = greeting;
+      }
+      window.onload = displayGreeting;
+    </script>
+
+    <!-- For about section tab links contents  -->
+    <script>
+      // Function to open the corresponding tab content
+      function opentab(event, tabname) {
+        let tablinks = document.getElementsByClassName("tab-links");
+        let tabcontents = document.getElementsByClassName("tab-contents");
+        for (let tablink of tablinks) {
+          tablink.classList.remove("active-links");
+        }
+        for (let tabcontent of tabcontents) {
+          tabcontent.classList.remove("active-tabs");
+        }
+        event.currentTarget.classList.add("active-links");
+        document.getElementById(tabname).classList.add("active-tabs");
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        let firstTab = document.getElementsByClassName("tab-links")[0];
+        let firstTabContent = document.getElementById("Skills");
+        firstTab.classList.add("active-links");
+        firstTabContent.classList.add("active-tabs");
+      });
+    </script>
+    <!-- form data  -->
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbz7HbtcueM-0JVf9QBNx0Cjzw-8wn3N3UppzVSVcdGnd0cnarUo5tX84pcDCEk0WCNodg/exec";
+      const form = document.forms["submit-to-google-sheet"];
+      const msg = document.getElementById("msg");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            msg.innerHTML = "Message sent successfully";
+            setTimeout(function () {
+              msg.innerHTML = "";
+            }, 5000);
+            form.reset();
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+  </body>
+</html>
